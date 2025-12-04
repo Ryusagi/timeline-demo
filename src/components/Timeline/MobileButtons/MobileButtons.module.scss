@@ -1,0 +1,27 @@
+.container {
+    position: absolute;
+    left: 50%;
+    bottom: 32px;
+    transform: translateX(-50%);
+    width: 86px;
+    display: flex;
+    justify-content: space-between;
+
+    .button {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: rgba(66, 86, 122, 0.4);
+        border: none;
+        padding: 0;
+        transition: 0.1s background ease;
+
+        &.selected {
+            background: rgb(66, 86, 122);
+        }
+    }
+
+    @media (min-width: 768px) {
+        display: none;
+    }
+}

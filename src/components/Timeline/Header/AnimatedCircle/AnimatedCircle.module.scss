@@ -1,0 +1,24 @@
+$circle-width: 530px;
+$top-offset: 215px;
+$timeline-width: 1440px;
+
+@media (min-width: 768px) {
+    .circle {
+        position: absolute;
+        width: $circle-width;
+        height: $circle-width;
+        top: $top-offset;
+        border-radius: calc($circle-width / 2);
+        left: calc(50% - $circle-width / 2);
+    }
+
+    .line {
+        content: '';
+        position: absolute;
+        top: calc($top-offset + $circle-width / 2);
+        left: -720px;
+        width: 200vw;
+        height: 1px;
+        background-color: rgba(66, 86, 122, 0.1);
+    }
+}

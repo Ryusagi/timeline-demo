@@ -1,0 +1,72 @@
+.container {
+    position: absolute;
+    left: 80px;
+    bottom: 180px;
+
+    .counter {
+        margin-bottom: 20px;
+        font-size: 14px;
+        color: #42567a;
+
+        @media (max-width: 767px) {
+            margin-bottom: 10px;
+        }
+    }
+
+    .buttonsContainer {
+        width: 120px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .button {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border: 1px solid rgba(66, 86, 122, 0.5);
+            outline: none;
+            box-shadow: none;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+
+            .arrow {
+                height: 12px;
+                color: rgba(66, 86, 122, 0.5);
+
+                @media (max-width: 767px) {
+                    height: 8px;
+                }
+            }
+
+            .rightArrow {
+                transform: rotate(180deg);
+            }
+
+            &:disabled {
+                opacity: 0.5;
+                cursor: auto;
+            }
+
+            @media (max-width: 767px) {
+                width: 25px;
+                height: 25px;
+            }
+        }
+
+        .button:not(:disabled):hover {
+            filter: brightness(1.1);
+        }
+
+        @media (max-width: 767px) {
+            width: 58px;
+        }
+    }
+
+    @media (max-width: 767px) {
+        left: 0;
+        bottom: 14px;
+    }
+}

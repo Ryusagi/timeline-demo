@@ -1,0 +1,24 @@
+$width: 973px;
+$height: 160px;
+$container-width: 1440px;
+$circle-width: 530px;
+$top-offset: 215px;
+
+
+.container {
+    width: $width;
+    height: $height;
+    display: flex;
+    justify-content: center;
+    gap: 10vw;
+    position: absolute;
+    left: calc(50% - $width/2);
+    top: calc($top-offset + $circle-width/2 - $height/2);
+
+    @media (max-width: 767px) {
+        top: 163px;
+        width: 273px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
