@@ -21,4 +21,11 @@ $top-offset: 215px;
         left: 50%;
         transform: translateX(-50%);
     }
+
+    @media (max-height: 529px) {
+        top: 60px;
+        width: 273px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }

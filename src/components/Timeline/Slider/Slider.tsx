@@ -6,6 +6,7 @@ import styles from './Slider.module.scss';
 import 'swiper/css';
 
 export const Slider: React.FC<SliderProps> = ({
+    name,
     events,
     isVisible,
     isMobile,
@@ -51,44 +52,49 @@ export const Slider: React.FC<SliderProps> = ({
     const cardClassName = `${styles.card} ${isVisible ? '' : styles.hidden}`;
 
     return (
-        <div className={styles.container}>
-            <Swiper
-                spaceBetween={40}
-                slidesPerView={slidesPerView}
-                onSwiper={setSwiperInstance}
-                onSlideChange={onSlide}
-            >
-                {events.map(({ year, description }, index) => (
-                    <SwiperSlide key={year}>
-                        <div className={cardClassName}>
-                            <div className={styles.header}>{year}</div>
-                            {description && (
-                                <p className={styles.description}>
-                                    {description}
-                                </p>
-                            )}
-                        </div>
-                    </SwiperSlide>
-                ))}
-            </Swiper>
-            {hasPrevButton && (
-                <button
-                    id={styles.prevButton}
-                    className={styles.button}
-                    onClick={onPrevClick}
-                >
-                    <Arrow className={styles.arrow} />
-                </button>
-            )}
-            {hasNextButton && (
-                <button
-                    id={styles.nextButton}
-                    className={styles.button}
-                    onClick={onNextClick}
-                >
-                    <Arrow className={arrowNextClassName} />
-                </button>
-            )}
-        </div>
+        <>
+            <div className={styles.container}>
+                {isMobile && <div className={styles.title}>{name}</div>}
+                <div className={styles.sliderContainer}>
+                    <Swiper
+                        spaceBetween={40}
+                        slidesPerView={slidesPerView}
+                        onSwiper={setSwiperInstance}
+                        onSlideChange={onSlide}
+                    >
+                        {events.map(({ year, description }, index) => (
+                            <SwiperSlide key={year}>
+                                <div className={cardClassName}>
+                                    <div className={styles.header}>{year}</div>
+                                    {description && (
+                                        <p className={styles.description}>
+                                            {description}
+                                        </p>
+                                    )}
+                                </div>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                    {hasPrevButton && (
+                        <button
+                            id={styles.prevButton}
+                            className={styles.button}
+                            onClick={onPrevClick}
+                        >
+                            <Arrow className={styles.arrow} />
+                        </button>
+                    )}
+                    {hasNextButton && (
+                        <button
+                            id={styles.nextButton}
+                            className={styles.button}
+                            onClick={onNextClick}
+                        >
+                            <Arrow className={arrowNextClassName} />
+                        </button>
+                    )}
+                </div>
+            </div>
+        </>
     );
 };

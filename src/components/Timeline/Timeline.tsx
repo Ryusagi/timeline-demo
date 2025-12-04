@@ -16,7 +16,7 @@ export const Timeline: FC<TimelineProps> = ({ data }) => {
         return <div className={styles.emptyData}>Empty data !!!</div>;
     }
 
-    const { events } = data[selected];
+    const { events, name } = data[selected];
 
     return (
         <div className={styles.container}>
@@ -30,6 +30,7 @@ export const Timeline: FC<TimelineProps> = ({ data }) => {
                 setIsRotating={setIsRotating}
             />
             <Slider
+                name={name}
                 events={events}
                 isMobile={isMobile}
                 isVisible={isSliderVisible}

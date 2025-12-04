@@ -5,85 +5,108 @@
     box-sizing: border-box;
     position: relative;
 
-    .card {
-        padding: 20px;
-        background: transparent;
-        cursor: grabbing;
+    .title {
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 30px;
 
-        &.hidden {
+        @media (min-width: 768px) and (min-height: 530px) {
             display: none;
         }
+    }
+    .sliderContainer {
+        .card {
+            padding: 20px;
+            background: transparent;
+            cursor: grabbing;
 
-        .header {
-            color: #3877ee;
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 25px;
-            line-height: 120%;
-            margin-bottom: 15px;
+            &.hidden {
+                display: none;
+            }
 
-            @media (max-width: 767px) {
-                font-size: 16px;
+            .header {
+                color: #3877ee;
+                font-family: 'Bebas Neue', sans-serif;
+                font-size: 25px;
+                line-height: 120%;
+                margin-bottom: 15px;
+
+                @media (max-width: 767px) or (max-height: 529px) {
+                    font-size: 16px;
+                }
+            }
+
+            .description {
+                font-size: 20px;
+                line-height: 30px;
+                letter-spacing: 0;
+
+                @media (max-width: 767px) or (max-height: 529px) {
+                    font-size: 14px;
+                }
+            }
+
+            @media (max-width: 767px) or (max-height: 529px) {
+                padding-left: 0;
+                padding-right: 0;
             }
         }
 
-        .description {
-            font-size: 20px;
-            line-height: 30px;
-            letter-spacing: 0;
+        #prevButton {
+            left: 15px;
+        }
 
-            @media (max-width: 767px) {
-                font-size: 14px;
+        #nextButton {
+            right: 15px;
+        }
+
+        .button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            cursor: pointer;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            outline: none;
+            border: none;
+            z-index: 1000;
+            opacity: 1;
+            box-shadow: 0 0 15px 0 rgba(56, 119, 238, 0.1);
+
+            &:hover {
+                box-shadow: 0 0 15px 0 rgba(56, 119, 238, 0.2);
+            }
+
+            .arrow {
+                color: #3877ee;
+                width: 5px;
+                height: 10px;
+            }
+
+            .arrowNext {
+                transform: rotate(180deg);
+            }
+
+            @media (max-width: 767px) or (max-height: 529px) {
+                display: none;
             }
         }
-    }
-
-    #prevButton {
-        left: 15px;
-    }
-
-    #nextButton {
-        right: 15px;
-    }
-
-    .button {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        cursor: pointer;
-        top: 50%;
-        transform: translateY(-50%);
-        background: white;
-        outline: none;
-        border: none;
-        z-index: 1000;
-        opacity: 1;
-        box-shadow: 0 0 15px 0 rgba(56, 119, 238, 0.1);
-
-        &:hover {
-            box-shadow: 0 0 15px 0 rgba(56, 119, 238, 0.2);
-        }
-
-        .arrow {
-            color: #3877ee;
-            width: 5px;
-            height: 10px;
-        }
-
-        .arrowNext {
-            transform: rotate(180deg);
-        }
-
-        @media (max-width: 767px) {
-            display: none;
+        @media (max-width: 767px) or (max-height: 529px) {
+            border-top: 1px solid #c7cdd9;
         }
     }
     @media (max-width: 767px) {
         margin-bottom: 200px;
-        border-top: 1px solid #c7cdd9;
+        padding: 0;
+    }
+
+    @media (max-height: 529px) {
+        margin-bottom: 50px;
         padding: 0;
     }
 }
