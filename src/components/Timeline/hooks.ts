@@ -11,7 +11,8 @@ export const useIsMobile = (breakpoint = 768, height = 530) => {
         };
 
         checkDevice();
-
+        //  тут лучше подойдет Window.matchMedia(), он дернет обработчик в нужный момент
+        // если же есть причины использовать resize, то нужно делать debounce или thorttle
         window.addEventListener('resize', checkDevice);
 
         return () => {

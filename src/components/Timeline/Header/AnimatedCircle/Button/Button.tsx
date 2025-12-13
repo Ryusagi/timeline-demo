@@ -38,7 +38,13 @@ export const Button: FC<ButtonProps> = ({
                 ease: 'power2.out',
             });
         } else {
+            // зачем тут эти атрибуты менять? если мне не изменяет память, gsap меняет только численные параметры
+            // display: 'flex',
+            // justifyContent: 'center',
+            // alignItems: 'center',
             gsap.to(buttonRef.current, {
+                // fontSize, width и height менять не стоит, достаточно тяжело будет для браузера, лучше делать через transform scale
+                // но там есть хитрость, что нужно трансформировать контейнер и компонент в противофазе, что бы компенсировать искажение
                 width: 56,
                 height: 56,
                 display: 'flex',
@@ -94,6 +100,7 @@ export const Button: FC<ButtonProps> = ({
                 onClick={onClick}
                 style={{
                     position: 'absolute',
+                    // left и top тоже тяжело рендерятся браузером, лучше переписать полсностью на рассчпет transform
                     left: `calc(50% + ${x}px)`,
                     top: `calc(50% + ${y}px)`,
                     transform: 'translate(-50%, -50%)',
