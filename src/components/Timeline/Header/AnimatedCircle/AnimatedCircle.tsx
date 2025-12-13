@@ -38,9 +38,12 @@ export const AnimatedCircle: FC<AnimatedCircleProps> = ({
         <>
             <div className={styles.line} />
             <div className={styles.circle} ref={containerRef}>
+                {/*Я бы вытащил эту логику из рендера и рассчитал заранее, и отдл в рендер массив позиций и координат*/}
                 {names.map((text, index) => {
                     const position = index === 0 ? names.length - 1 : index - 1;
                     const angle = (position / names.length) * 2 * Math.PI;
+                    // 265 "волжебные" константы лучше декларировать заранее
+                    // с названием которое означает их назначение
                     const x = Math.cos(angle) * 265;
                     const y = Math.sin(angle) * 265;
 

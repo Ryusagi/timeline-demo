@@ -10,6 +10,8 @@ export const MobileButtons: FC<MobileButtonsProps> = ({
 }) => {
     useEffect(() => {
         setSliderHide(true);
+        // стоит добавить crearTimeout, хоть тут и 100ms, но может быть кейс когда компонент отмонтируется
+        // setSliderHide не будет уже и приложение словить exception
         setTimeout(() => {
             setSliderHide(false);
         }, 100);

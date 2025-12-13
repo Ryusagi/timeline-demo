@@ -11,6 +11,7 @@ export const Slider: React.FC<SliderProps> = ({
     isVisible,
     isMobile,
 }) => {
+    // не уверен, но нужен ли тут state? возможно тут хватит ref для хранения инстанса,
     const [swiperInstance, setSwiperInstance] = useState<
         SwiperClass | undefined
     >(undefined);
@@ -36,7 +37,7 @@ export const Slider: React.FC<SliderProps> = ({
         setHasNextButton(checkHasNextButton());
         setHasPrevButton(checkHasPrevButton());
     };
-
+    //обработчики нужно обернуть в useCallback
     const onNextClick = (event: MouseEvent) => {
         event.stopPropagation();
         swiperInstance?.slideNext();
@@ -48,6 +49,7 @@ export const Slider: React.FC<SliderProps> = ({
     };
 
     const slidesPerView = isMobile ? 2 : 4;
+    // можно для этого юзать classnames lib
     const arrowNextClassName = `${styles.arrow} ${styles.arrowNext}`;
     const cardClassName = `${styles.card} ${isVisible ? '' : styles.hidden}`;
 
@@ -62,7 +64,10 @@ export const Slider: React.FC<SliderProps> = ({
                         onSwiper={setSwiperInstance}
                         onSlideChange={onSlide}
                     >
+                        {/*events можно мемоизировать*/}
+                        {/*index не используется*/}
                         {events.map(({ year, description }, index) => (
+                            // думаю что можно сверстаный слайд вынести в компонент отдельный
                             <SwiperSlide key={year}>
                                 <div className={cardClassName}>
                                     <div className={styles.header}>{year}</div>
